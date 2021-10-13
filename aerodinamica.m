@@ -44,7 +44,7 @@ AR = b_ala^2/S_ala;
 
 %%%Coeficiente de sustentación 
 CL0=0.25;
-CLdit sta=5.5;
+CLalpha=5.5;
 CL= CL0+CLalpha*alpha;
 
 %%%Coeficiente de resistencia
