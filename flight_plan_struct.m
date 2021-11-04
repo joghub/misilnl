@@ -1,7 +1,7 @@
-function [fp] = flight_plan(tabla1,tabla2,tabla3,sid,pista,iap)
+function [fp] = flight_plan_struct(tabla1,tabla2,tabla3,sid,pista,iap)
 
 % Hay que proporcionarle 3 cadenas de carácteres SID,Pista de SID y el IAP.
-% EJEMPLO: fp = flight_plan(tabla1,tabla2,tabla3,3,8,5)
+% EJEMPLO: fp = flight_plan(tabla1,tabla2,tabla3,'DEEZZ5','22R','RNAVZRWY34L')
 
 %% Antes de usar
 %{
@@ -14,10 +14,10 @@ tabla3=table2struct(tabla3);
 %}
 %% Creación plan de vuelo (en tabla)
 
-t111 = tabla1([tabla1.SID] == sid);
-t11 = t111([t111.Runway] == pista);
+t111 = tabla1(strcmp({tabla1.SID},sid));
+t11 = t111(strcmp({t111.Runway},pista));
 t1 = rmfield(rmfield(rmfield(t11,'Airport'),'SID'),'Runway');
-t33 = tabla3([tabla3.IAP] == iap);
+t33 = tabla3(strcmp({tabla3.IAP},iap));
 t3 = rmfield(rmfield(rmfield(t33,'Airport'),'IAP'),'Runway');
 fp=[t1;tabla2;t3];
 

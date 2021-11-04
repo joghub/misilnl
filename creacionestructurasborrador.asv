@@ -86,8 +86,6 @@ BUS_WP = evalin('base',busInfo.busName);
 busInfo = Simulink.Bus.createObject(tabla3);
 BUS_IAP = evalin('base',busInfo.busName);
 
-busInfo = Simulink.Bus.createObject(fp);
-BUS_FP = evalin('base',busInfo.busName);
 
 M = containers.Map('KeyType', 'int32'  ,'ValueType', 'char'  )
 M(1)='KSEA';
