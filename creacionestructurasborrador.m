@@ -92,3 +92,24 @@ BUS_FP = evalin('base',busInfo.busName);
 M = containers.Map('KeyType', 'int32'  ,'ValueType', 'char'  )
 M(1)='KSEA';
 M(1)
+
+busInfo = Simulink.Bus.createObject(fp);
+BUS_FP = evalin('base',busInfo.busName);
+
+t1=[];
+for k=1:length(t11)
+    t11k=t11(k);
+    
+    for i=4:length(f)
+        fi=f{i};
+        eval(strcat('t1i.',fi,'=t11k.',fi))
+    end
+    t1=[t1,t1i];
+end
+
+setfield(t11,fi,getfield(t11k,fi))
+
+tabla4 = readtable('ACTUAL.xlsx');
+tabla4=table2struct(tabla4);
+busInfo = Simulink.Bus.createObject(tabla4);
+BUS_ACTUAL = evalin('base',busInfo.busName);
