@@ -11,6 +11,16 @@ tabla3 = readtable('IAPs.xlsx');
 tabla1=table2struct(tabla1);
 tabla2=table2struct(tabla2);
 tabla3=table2struct(tabla3);
+fp = flight_plan_eval(tabla1,tabla2,tabla3,3,8,5)
+busInfo = Simulink.Bus.createObject(tabla1);
+BUS_SID = evalin('base',busInfo.busName);
+busInfo = Simulink.Bus.createObject(tabla2);
+BUS_WP = evalin('base',busInfo.busName);
+busInfo = Simulink.Bus.createObject(tabla3);
+BUS_IAP = evalin('base',busInfo.busName);
+
+busInfo = Simulink.Bus.createObject(fp);
+BUS_FP = evalin('base',busInfo.busName);
 %}
 %% Creación plan de vuelo (en tabla)
 
