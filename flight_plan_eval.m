@@ -18,7 +18,6 @@ busInfo = Simulink.Bus.createObject(tabla2);
 BUS_WP = evalin('base',busInfo.busName);
 busInfo = Simulink.Bus.createObject(tabla3);
 BUS_IAP = evalin('base',busInfo.busName);
-
 busInfo = Simulink.Bus.createObject(fp);
 BUS_FP = evalin('base',busInfo.busName);
 %}
