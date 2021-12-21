@@ -22,7 +22,7 @@ L=input(10);
 M=input(11);
 N=input(12);
 
-% Ecuaciones de Fuerza
+% Forces
 udot=((1/m)*Fx)-q*w+r*v;
 vdot=((1/m)*Fy)-r*u+p*w;
 wdot=((1/m)*Fz)-p*v+q*u;
@@ -31,6 +31,6 @@ rdot=(1/(Iz-(Ixz^2/Ix)))*(N-p*q*(Iy-Ix)+q*r*Ixz-(Ixz/Ix)*(L-q*r*(Iz-Iy)-p*q*Ixz)
 pdot=(1/Ix)*(L-Ixz*rdot-q*r*(Iz-Iy)-p*q*Ixz);
 qdot=(1/Iy)*(M-r*p*(Ix-Iz)-((r^2)-(p^2))*Ixz);
 
-% Salidas
+% Outputs
 sol1=[udot,vdot,wdot,pdot,qdot,rdot];
 end
